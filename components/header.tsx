@@ -40,6 +40,7 @@ export default function Header() {
     { name: "About", href: "about" },
     { name: "Products", href: "products" },
     { name: "Recipe", href: "recipe" },
+    { name: "Services", href: "services" }, // New placeholder item
     { name: "Contact", href: "contact" },
   ]
 
