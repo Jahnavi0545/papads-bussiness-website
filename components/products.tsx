@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Star, ShoppingCart, Check } from "lucide-react"
 import { useCart } from "./cart-context"
+import Link from "next/link"
 
 export default function Products() {
   const [isVisible, setIsVisible] = useState(false)
@@ -183,13 +184,15 @@ export default function Products() {
           </div>
 
           <div className="text-center mt-8 sm:mt-12">
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 bg-transparent"
-            >
-              View All Products
-            </Button>
+            <Link href="/products">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 bg-transparent transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                View All Products
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

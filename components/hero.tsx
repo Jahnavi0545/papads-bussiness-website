@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Leaf, Star } from "lucide-react"
+import Link from "next/link"
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -10,6 +11,18 @@ export default function Hero() {
   useEffect(() => {
     setIsVisible(true)
   }, [])
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      const headerHeight = 120
+      const elementPosition = element.offsetTop - headerHeight
+      window.scrollTo({
+        top: elementPosition,
+        behavior: "smooth",
+      })
+    }
+  }
 
   return (
     <section
@@ -67,16 +80,19 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 sm:mb-12 px-4">
-            <Button
-              size="lg"
-              className="w-full sm:w-auto bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-            >
-              Explore Products
-              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-            </Button>
+            <Link href="/products">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              >
+                Explore Products
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+              </Button>
+            </Link>
             <Button
               variant="outline"
               size="lg"
+              onClick={() => scrollToSection("about")}
               className="w-full sm:w-auto border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 bg-transparent"
             >
               Our Story

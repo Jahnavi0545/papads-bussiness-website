@@ -6,6 +6,7 @@ import { Menu, X, Phone, Mail, ShoppingCart, User, Leaf } from "lucide-react"
 import LoginModal from "./login-modal"
 import CartModal from "./cart-modal"
 import { useCart } from "./cart-context"
+import Link from "next/link" // Import Link
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -123,9 +124,12 @@ export default function Header() {
                   </span>
                 )}
               </Button>
-              <Button className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white">
-                Order Now
-              </Button>
+              {/* Modified 'Order Now' button to redirect to /empty */}
+              <Link href="/empty" passHref>
+                <Button className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white">
+                  Order Now
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -173,9 +177,12 @@ export default function Header() {
                     <ShoppingCart className="w-5 h-5 mr-2" />
                     Cart ({getTotalItems()})
                   </Button>
-                  <Button className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white">
-                    Order Now
-                  </Button>
+                  {/* Modified 'Order Now' button for mobile to redirect to /empty */}
+                  <Link href="/empty" passHref>
+                    <Button className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white">
+                      Order Now
+                    </Button>
+                  </Link>
                 </div>
               </nav>
             </div>
