@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Award, Users, Leaf, Heart } from "lucide-react"
+import Image from "next/image" // Import Image component
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false)
@@ -57,9 +58,18 @@ export default function About() {
             </div>
 
             <div className="relative px-4 lg:px-0">
-              <div className="aspect-square bg-gradient-to-br from-emerald-100 to-teal-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl">
-                <div className="w-full h-full bg-white rounded-xl sm:rounded-2xl flex items-center justify-center">
-                  <div className="text-center">
+              {/* Modified div for the entire card background */}
+              <div className="aspect-square relative rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden">
+                <Image
+                  src="/images/natural-card-background.png" // Using the provided image
+                  alt="Abstract green and white background representing natural ingredients"
+                  layout="fill"
+                  objectFit="cover"
+                  className="absolute inset-0 z-0" // Image fills the entire card
+                />
+                {/* Content overlay with padding */}
+                <div className="relative z-10 w-full h-full flex items-center justify-center p-6 sm:p-8">
+                  <div className="text-center bg-white/80 p-6 rounded-lg">
                     <div className="w-16 h-16 sm:w-24 sm:h-24 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Leaf className="w-8 h-8 sm:w-12 sm:h-12 text-white" />
                     </div>
